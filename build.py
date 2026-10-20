@@ -5,6 +5,7 @@ from html import escape
 from datetime import date
 import struct
 import json
+import re
 
 ROOT = Path(__file__).resolve().parent
 ORIGIN = 'https://crimi-gang.github.io'
@@ -91,7 +92,7 @@ def document(title, description, content, route='', active='', bodyclass='', gal
 <link rel="preload" href="fonts-nunito-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="styles.css"><script src="site.js" defer></script><script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script></head>
 <body class="{bodyclass}"><a class="skip-link" href="{route}#main">Vai al contenuto</a><header class="site-header"><div class="header-inner wrap"><a class="brand" href="./" aria-label="Crimi Gang, home"><span class="brand-mark">{icon('heart')}</span><span>crimi gang<span class="dot">.</span></span></a><button class="menu-toggle" aria-label="Apri menu" aria-controls="main-nav" aria-expanded="false">{icon('menu')}</button><nav class="nav" id="main-nav" aria-label="Navigazione principale">{nav}<a class="nav-contact" href="contatti.html" {'aria-current="page"' if active == 'contact' else ''}>Contatti{icon('up-right')}</a></nav></div></header>
 <main id="main">{content}</main>{lightbox}
-<footer class="site-footer"><div class="wrap"><div class="footer-top"><div><a class="brand" href="./"><span class="brand-mark">{icon('heart')}</span><span>crimi gang<span class="dot">.</span></span></a><p>Piccole idee, tanto cuore.</p></div><nav class="footer-links" aria-label="Link nel footer"><a href="progetti.html">Progetti</a><a href="chi-siamo.html">Chi siamo</a><a href="contatti.html">Contatti</a><a href="https://github.com/crimi-gang" target="_blank" rel="noopener noreferrer">GitHub {icon('up-right')}</a></nav></div><div class="footer-bottom"><span>© {date.today().year} Crimi Gang · Cristian &amp; Noemi</span><span>Fatto con cura, e un po’ di {icon('heart')}</span></div></div></footer></body></html>'''
+<footer class="site-footer"><div class="wrap"><div class="footer-top"><div><a class="brand" href="./"><span class="brand-mark">{icon('heart')}</span><span>crimi gang<span class="dot">.</span></span></a><p>Piccole idee, tanto cuore.</p></div><nav class="footer-links" aria-label="Link nel footer"><a href="progetti.html">Progetti</a><a href="chi-siamo.html">Chi siamo</a><a href="contatti.html">Contatti</a><a href="privacy.html">Privacy</a><a href="https://github.com/crimi-gang" target="_blank" rel="noopener noreferrer">GitHub {icon('up-right')}</a></nav></div><div class="footer-bottom"><span>© {date.today().year} Crimi Gang · Cristian &amp; Noemi</span><span>Fatto con cura, e un po’ di {icon('heart')}</span></div></div></footer></body></html>'''
 
 home = f'''
 <section class="home-hero wrap"><div class="hero-copy"><div class="eyebrow">Ciao, siamo Crimi Gang</div><h1>Le cose belle<br>nascono<br><span class="together">insieme.</span></h1><p>Siamo Cristian e Noemi. Creiamo app, piccoli mondi e cose che ci fanno stare bene.<br>Per passione, e con un po’ di cuore.</p><div class="hero-actions">{button('progetti.html', 'Esplora i progetti')}{textlink('chi-siamo.html', 'La nostra storia')}</div><div class="hero-footnote"><div class="mini-avatars" aria-hidden="true"><span>C</span><span>N</span></div>Due persone. Una passione condivisa.</div></div>
@@ -124,6 +125,46 @@ about = f'''<section class="page-intro wrap">{breadcrumb('Chi siamo')}<div class
 contact = f'''<section class="page-intro wrap">{breadcrumb('Contatti')}<div class="eyebrow">La casella della gang</div><h1>Cominciamo<br>con un <span class="accent">ciao.</span></h1><p>Hai una domanda sui nostri progetti, un suggerimento o un problema da raccontarci? Ci trovi qui.</p></section><div class="contact-layout wrap"><section class="contact-card" aria-labelledby="email-title">{icon('mail')}<h2 id="email-title">La nostra email</h2><a class="email-link" href="mailto:crimisupport@gmail.com">crimisupport@gmail.com {icon('up-right')}</a><p>Per supporto, idee, feedback e saluti.</p><div>{button('mailto:crimisupport@gmail.com?subject=Ciao%20Crimi%20Gang', 'Scrivi un’email', 'primary', 'mail')}<button class="copy-button" data-copy-email>Copia indirizzo</button></div><div class="copy-status" role="status" aria-live="polite"></div></section><div class="contact-options"><section class="contact-option"><h3>Ti serve una mano?</h3><p>Indica il nome del progetto, il dispositivo e cosa succede. Se puoi, aggiungi i passaggi per riprodurre il problema.</p>{textlink('mailto:crimisupport@gmail.com?subject=Supporto%20progetto%20Crimi%20Gang','Chiedi supporto')}</section><section class="contact-option"><h3>Hai una bella idea?</h3><p>Ci piace ascoltare nuovi punti di vista. Raccontaci cosa vorresti trovare in Crimi Love o Tiny Cozy Town.</p>{textlink('mailto:crimisupport@gmail.com?subject=Un%27idea%20per%20Crimi%20Gang','Condividi un’idea')}</section></div></div>
 <section class="section wrap" style="padding-top:15px"><div class="eyebrow">Prima di scriverci</div><h2>Qualche piccola risposta.</h2><div class="faq-list"><details><summary>Posso già scaricare Crimi Love o Tiny Cozy Town?</summary><p>Entrambi i progetti sono in sviluppo e non sono ancora disponibili per il download pubblico. Trovi anteprime e dettagli nelle <a href="progetti.html">pagine dei progetti</a>.</p></details><details><summary>Come posso segnalare un problema?</summary><p>Scrivi a <a href="mailto:crimisupport@gmail.com">crimisupport@gmail.com</a> indicando il progetto, la versione che stai provando, il dispositivo e i passaggi che portano al problema. Non inviare password o codici di accesso.</p></details><details><summary>Posso proporre una funzione o condividere un feedback?</summary><p>Certo! Raccontaci la tua idea via email. Leggiamo i suggerimenti mentre continuiamo a sviluppare i progetti.</p></details></div></section>'''
 
+def policy_inline(text):
+    """Render the small trusted Markdown subset used by our policy source."""
+    text = escape(text, quote=True)
+    text = re.sub(r'\[([^\]]+)\]\(((?:https://|mailto:)[^\s)]+)\)', r'<a href="\2">\1</a>', text)
+    return re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
+
+
+def policy_body(source):
+    sections = []
+    toc = []
+    section = 0
+    for block in source.strip().split('\n\n'):
+        if block.startswith('# '):
+            continue
+        if block.startswith('## '):
+            section += 1
+            title = block[3:]
+            anchor = f'sezione-{section}'
+            toc.append(f'<li><a href="privacy-tiny-cozy-town.html#{anchor}">{escape(title)}</a></li>')
+            sections.append(f'<h2 id="{anchor}">{escape(title)}</h2>')
+        else:
+            sections.append('<p>' + policy_inline(block).replace('\n', '<br>') + '</p>')
+    return '<div class="privacy-layout wrap"><aside class="privacy-index"><h2>In questa pagina</h2><nav aria-label="Indice privacy Tiny Cozy Town"><ol>' + ''.join(toc) + '</ol></nav></aside><article class="privacy-copy">' + '\n'.join(sections) + '</article></div>'
+
+
+privacy_site = f'''<section class="page-intro wrap">{breadcrumb('Privacy')}<div class="eyebrow">Informazioni sui dati</div><h1>La privacy,<br>con <span class="accent">chiarezza.</span></h1><p>Come gestiamo i dati di chi visita il sito Crimi Gang o ci scrive. Ultimo aggiornamento: 20 ottobre 2026.</p></section>
+<article class="privacy-copy privacy-site wrap"><h2>Chi gestisce questo sito</h2><p>Il titolare è <strong>Cristian Papa</strong>. Per domande sui dati personali scrivi a <a href="mailto:crimisupport@gmail.com">crimisupport@gmail.com</a>.</p>
+<div class="privacy-callout"><h2>Cerchi la privacy del gioco?</h2><p>Per salvataggi, acquisti Apple, Game Center, iCloud e annunci facoltativi, consulta l'informativa dedicata a Tiny Cozy Town.</p>{button('privacy-tiny-cozy-town.html', 'Privacy di Tiny Cozy Town', 'primary', 'arrow')}</div>
+<h2>Navigazione del sito</h2><p>Questo sito è statico e ospitato su GitHub Pages. Non inseriamo strumenti di analytics, pixel pubblicitari, moduli di registrazione, cookie di profilazione o risorse incorporate di social network. Immagini, font e codice dell'interfaccia sono serviti dal sito stesso. Il menu, le gallerie e la copia dell'email funzionano nel browser senza inviare i contenuti dei tuoi appunti allo sviluppatore.</p><p>GitHub registra l'indirizzo IP dei visitatori per motivi di sicurezza anche senza un accesso a GitHub. Consulta la <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">descrizione di GitHub Pages</a> e la <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">privacy di GitHub</a> per i dettagli di questo trattamento e i relativi criteri di conservazione. Il titolare non usa questi dati per creare profili pubblicitari dei visitatori.</p>
+<h2>Quando ci scrivi</h2><p>I link email aprono il programma di posta: il sito non invia messaggi automaticamente. Se scegli di scrivere, riceviamo il tuo indirizzo, il testo e gli allegati che invii, per rispondere alla richiesta. Usiamo Gmail, secondo la <a href="https://policies.google.com/privacy">privacy di Google</a>. Non inviare password, codici di accesso o dati non necessari. Scriverci non attiva una newsletter.</p>
+<h2>Finalità, conservazione e destinatari</h2><p>La gestione dell'assistenza relativa ai nostri servizi si basa sull'esecuzione del servizio o di misure richieste prima di usarlo (art. 6.1.b GDPR). Gli eventuali adempimenti obbligatori si basano sulla legge (art. 6.1.c). Per altri messaggi volontari usiamo i dati solo per il riscontro richiesto; non li riutilizziamo per campagne di marketing.</p><p>Conserviamo la corrispondenza per il tempo necessario a gestire il messaggio e le successive verifiche; oltre tale periodo solo per obblighi di legge o per accertare, esercitare o difendere un diritto, per la durata necessaria. I destinatari sono il titolare e i servizi di hosting o posta descritti, oltre alle autorità nei casi previsti dalla legge. GitHub e Google possono trattare dati anche fuori dallo Spazio economico europeo: le loro informative descrivono paesi, tempi e garanzie di trasferimento applicabili.</p>
+<h2>Le tue scelte e i tuoi diritti</h2><p>Puoi visitare le pagine senza scriverci. Se non fornisci i dati necessari a una richiesta, potremmo non riuscire a rispondere. Nei casi previsti dal GDPR puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione scrivendo al contatto indicato. Puoi inoltre rivolgerti al <a href="https://www.garanteprivacy.it/home/i-miei-diritti/diritti">Garante per la protezione dei dati personali</a> o all'autorità competente del tuo paese.</p>
+<h2>Informative dei progetti</h2><p>L'informativa del sito descrive la navigazione di queste pagine e il contatto email. Il trattamento dei dati all'interno delle app è descritto nelle rispettive informative. Quella di <a href="privacy-tiny-cozy-town.html">Tiny Cozy Town</a> è disponibile qui. Crimi Love è un progetto distinto: la sua informativa sarà resa disponibile prima del rilascio pubblico.</p>
+<h2>Aggiornamenti e contatti</h2><p>Eventuali nuovi servizi saranno accompagnati dall'aggiornamento di questa pagina e, quando necessario, dalle scelte di consenso pertinenti. Per informazioni: <a href="mailto:crimisupport@gmail.com">crimisupport@gmail.com</a>.</p></article>'''
+
+privacy_town = f'''<section class="page-intro wrap">{breadcrumb('Privacy · Tiny Cozy Town')}<div class="eyebrow">Il tuo villaggio e i tuoi dati</div><h1>Privacy di<br><span class="accent">Tiny Cozy Town.</span></h1><p>Salvataggi, servizi Apple e annunci facoltativi: le informazioni per scegliere con calma.</p></section>''' + policy_body((ROOT / 'privacy-tiny-cozy-town.md').read_text(encoding='utf-8'))
+
+contact += f'''<section class="privacy-links wrap"><h2>Una domanda sulla privacy?</h2><p>Puoi usare la stessa email per informazioni sui tuoi dati. Prima, trovi i dettagli nelle nostre informative.</p><div>{textlink('privacy.html', 'Privacy del sito')}{textlink('privacy-tiny-cozy-town.html', 'Privacy di Tiny Cozy Town')}</div></section>'''
+town += f'''<section class="privacy-links wrap"><h2>Il tuo villaggio, i tuoi dati.</h2><p>Scopri come funzionano salvataggi, servizi Apple e annunci facoltativi.</p>{textlink('privacy-tiny-cozy-town.html', 'Leggi l’informativa privacy')}</section>'''
+
 missing = f'''<section class="not-found wrap">{img('town/rabbit-0.png','Mochi il coniglio')}<div class="eyebrow">Errore 404</div><h1>Ops, un piccolo<br>giro fuori mappa.</h1><p>Questa pagina non c’è. Torniamo nel nostro piccolo universo?</p>{button('./','Torna alla home')}</section>'''
 
 pages = [
@@ -133,6 +174,8 @@ pages = [
     ('tiny-cozy-town.html', 'Tiny Cozy Town · Un villaggio tutto tuo | Crimi Gang', 'Un cozy game isometrico per iPhone e iPad. Esplora il villaggio, le texture originali e i piccoli personaggi di Tiny Cozy Town.', town, 'projects', 'detail-town', True),
     ('chi-siamo.html', 'Cristian e Noemi · Chi siamo | Crimi Gang', 'Cristian sviluppa, Noemi testa. Siamo una coppia e creiamo app e giochi insieme per passione. Questa è Crimi Gang.', about, 'about', '', False),
     ('contatti.html', 'Contatti e supporto · Crimi Gang', 'Contatta Cristian e Noemi per supporto, idee e feedback su Crimi Love e Tiny Cozy Town. Scrivi a crimisupport@gmail.com.', contact, 'contact', '', False),
+    ('privacy.html', 'Privacy del sito · Crimi Gang', 'Informativa privacy del sito Crimi Gang: navigazione su GitHub Pages, contatto email e diritti sui dati personali.', privacy_site, '', '', False),
+    ('privacy-tiny-cozy-town.html', 'Privacy di Tiny Cozy Town · Crimi Gang', 'Informativa privacy di Tiny Cozy Town per iPhone e iPad. Titolare Cristian Papa, contatto crimisupport@gmail.com.', privacy_town, '', '', False),
 ]
 for route, title, desc, content, active, bodyclass, gallery in pages:
     (ROOT / (route or 'index.html')).write_text(document(title, desc, content, route, active, bodyclass, gallery), encoding='utf-8')

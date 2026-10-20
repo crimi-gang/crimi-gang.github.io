@@ -14,6 +14,9 @@ Il sito di **Cristian e Noemi**: app, giochi e piccoli mondi creati insieme per 
 - Tiny Cozy Town: `/tiny-cozy-town.html`
 - Chi siamo: `/chi-siamo.html`
 - Contatti: `/contatti.html`
+- Privacy del sito: `/privacy.html`
+- Privacy di Tiny Cozy Town: `/privacy-tiny-cozy-town.html`
+- Venditore pubblicitario autorizzato: `/app-ads.txt`
 - Pagina di errore: `/404.html`
 
 Il sito è statico, in italiano e responsive. Non richiede un servizio backend, pacchetti JavaScript, analytics o font esterni. Il contatto apre il programma di posta; il sito non invia email da solo. I progetti sono indicati come in sviluppo, senza link a download non ancora disponibili.
@@ -21,6 +24,10 @@ Il sito è statico, in italiano e responsive. Non richiede un servizio backend, 
 ## Modificare e verificare
 
 Le pagine HTML sono generate da `build.py`, che contiene testi e componenti comuni. `styles.css` definisce l'aspetto e `site.js` gestisce menu mobile, copia dell'email e gallerie con dialog accessibile. Non modificare soltanto gli HTML se vuoi conservare le modifiche alla prossima generazione.
+
+L'informativa del gioco ha una sorgente dedicata in `privacy-tiny-cozy-town.md`, aggiornata dal documento `docs/PRIVACY_POLICY.it.md` del progetto Tiny Cozy Town. Il builder la converte in HTML, con indice e ancore. Dopo una modifica ai trattamenti, aggiornare la sorgente e rigenerare le pagine. Il footer di tutte le pagine rimanda alla privacy del sito; Contatti e la pagina del gioco rimandano anche alla privacy specifica dell'app. Queste informazioni non costituiscono un'informativa per l'app distinta Crimi Love.
+
+`app-ads.txt` deve restare alla radice del sito e contiene soltanto il publisher AdMob comunicato dal titolare. Per la scheda App Store di Tiny Cozy Town usare URL marketing `https://crimi-gang.github.io/tiny-cozy-town.html`, URL assistenza `https://crimi-gang.github.io/contatti.html` e URL privacy `https://crimi-gang.github.io/privacy-tiny-cozy-town.html`. La pubblicazione del file non sostituisce la verifica di idoneità Google.
 
 Richiede Python 3.9 o successivo. Dalla cartella del sito:
 
