@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://crimi-gang.github.io/sitemap.xml
