@@ -2074,6 +2074,109 @@ summary:focus-visible {
     padding: 9px 11px;
   }
 }
+/* Sbrokk! uses the original game's warm palette and outlined shapes. */
+.project-cover.sbrokk,
+.detail-visual.sbrokk {
+  background-color: #f7e8cc;
+  background-image: radial-gradient(#30293415 1px, transparent 1px);
+  background-size: 24px 24px;
+  border: 1px solid #d9c8aa;
+}
+.sbrokk-art {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  color: #302934;
+}
+.sbrokk-character {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%) rotate(-5deg);
+  transition: transform .3s;
+}
+.project-card:hover .sbrokk-character {
+  transform: translateX(-50%) rotate(3deg) translateY(-5px);
+}
+.sbrokk-bubble {
+  position: absolute;
+  right: 18px;
+  top: 57px;
+  z-index: 1;
+  padding: 10px 15px;
+  background: #fff9ef;
+  border: 2px solid #302934;
+  border-radius: 14px;
+  box-shadow: 2px 3px 0 #302934;
+  transform: rotate(6deg);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.sbrokk-stamp {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+.detail-sbrokk {
+  --purple: #a24628;
+  --lilac: #f8e5d3;
+}
+.detail-sbrokk h1 .accent {
+  display: inline-block;
+  color: #c4492a;
+  transform: rotate(10deg);
+}
+.sbrokk-eyebrow { margin-top: 30px; }
+.detail-visual.sbrokk { min-height: 480px; }
+.detail-visual.sbrokk .sbrokk-art { min-height: 480px; }
+.detail-visual.sbrokk .sbrokk-character {
+  width: 78%;
+  height: auto;
+  max-width: 350px;
+  bottom: 58px;
+}
+.detail-visual.sbrokk .sbrokk-bubble {
+  top: 28px;
+  right: 26px;
+  font-size: 23px;
+  padding: 14px 21px;
+}
+.detail-visual.sbrokk .sbrokk-stamp { bottom: 26px; font-size: 10px; }
+.sbrokk-gallery { background: #f8ecd6; }
+.sbrokk-faces { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sbrokk-gallery .texture-item,
+.sbrokk-gallery .gallery-item { background: #fff9ef; border-color: #daceba; }
+.sbrokk-gallery .texture-item img { width: 100%; max-width: 220px; height: auto; }
+.sbrokk-gallery .texture-zoom { border-color: #daceba; }
+.sbrokk-gallery-note { font-size: 12px; margin-top: 25px; }
+.sbrokk-development { margin: 0 0 55px; }
+@media (min-width: 1100px) {
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .project-cover { height: 320px; }
+  .project-caption h3 { font-size: 24px; }
+  .project-caption .tag { font-size: 9px; }
+}
+@media (min-width: 761px) and (max-width: 1099px) {
+  .project-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .detail-visual.sbrokk,
+  .detail-visual.sbrokk .sbrokk-art { min-height: 390px; }
+  .detail-visual.sbrokk .sbrokk-character { max-width: 270px; bottom: 45px; }
+  .detail-visual.sbrokk .sbrokk-bubble { font-size: 20px; }
+  .sbrokk-faces { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

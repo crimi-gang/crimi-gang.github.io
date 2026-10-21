@@ -12,6 +12,7 @@ Il sito di **Cristian e Noemi**: app, giochi e piccoli mondi creati insieme per 
 - Progetti: `/progetti.html`
 - Crimi Love: `/crimi-love.html`
 - Tiny Cozy Town: `/tiny-cozy-town.html`
+- Sbrokk!: `/sbrokk.html`
 - Chi siamo: `/chi-siamo.html`
 - Contatti: `/contatti.html`
 - Privacy del sito: `/privacy.html`
@@ -51,6 +52,7 @@ Per aggiornare i contenuti: modifica i sorgenti, rigenera le pagine, verifica e 
 
 - **Crimi Love:** icona e anteprime dimostrative chiara/scura dal progetto originale; i dati delle schermate sono inventati. Palette `#C7517A`, `#593052`, `#FFDBCC`, `#F4B6C9` da `LoveTheme.swift`.
 - **Tiny Cozy Town:** risorse aggiornate il 20 ottobre 2026, esportate dal `TextureFactory.swift` attuale con `scripts/preview-artwork.sh`: cinque edifici, Mochi e Pip, sei decorazioni, due alberi e 25 combinazioni di colore. Le copertine usano la casetta originale; le panoramiche che mostravano il cartello pubblicitario sono state rimosse dalla presentazione. `town-expansion.png` proviene dall’anteprima SwiftUI della scheda di espansione. La presentazione include quattro attività fino al livello 30 e sei espansioni fino a 19 × 19. Palette `#AC98CE`, `#EFB5C7`, `#FFFBF3`, `#DFECDA` da `CozyTheme.swift`. Il builder aggiunge alle immagini Tiny Cozy Town una versione basata sul contenuto, per mostrare subito le nuove risorse anche nei browser che avevano memorizzato le precedenti.
+- **Sbrokk!:** icona dal progetto Sbrokko-Game. Sei espressioni esportate senza animazioni da `SbrokkoView.swift`; due tavole illustrative dei livelli 001 e 031 composte con `NodeView`, `BoardScenery` e il catalogo originale. Non sono screenshot di una release pubblicata. Nel sito si usa il nome Sbrokk! indicato dal titolare; il progetto sorgente usa ancora Sbrokko. Palette `#F7E8CC`, `#E96A42`, `#F8B843`, `#302934` da `DesignSystem.swift`. Il gioco contiene 100 livelli, 10 capitoli, 12 espressioni, tre indizi gratuiti per livello e un Ufficio Reclami bonus. Target iOS/iPadOS 17+, italiano e inglese.
 - **Font:** Nunito variable, ospitato in `fonts-nunito-latin.woff2`; licenza SIL Open Font License inclusa in `fonts-OFL.txt`. La scelta arrotondata riprende i font di sistema delle app.
 - Icone e favicon: SVG presenti nei sorgenti del sito.
 
