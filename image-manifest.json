@@ -1,0 +1,517 @@
+{
+  "love-home-dark.png": {
+    "width": 471,
+    "height": 1024,
+    "source_hash": "a83166cda644",
+    "variants": [
+      {
+        "path": "love-home-dark-320.webp",
+        "width": 320,
+        "hash": "354321641e"
+      },
+      {
+        "path": "love-home-dark-471.webp",
+        "width": 471,
+        "hash": "fa4e58ba8e"
+      }
+    ]
+  },
+  "love-home-light.png": {
+    "width": 471,
+    "height": 1024,
+    "source_hash": "117e5c7daf06",
+    "variants": [
+      {
+        "path": "love-home-light-320.webp",
+        "width": 320,
+        "hash": "9a1593f96c"
+      },
+      {
+        "path": "love-home-light-471.webp",
+        "width": 471,
+        "hash": "4794680148"
+      }
+    ]
+  },
+  "love-icon.png": {
+    "width": 192,
+    "height": 192,
+    "source_hash": "df691f3b970d",
+    "variants": [
+      {
+        "path": "love-icon-192.webp",
+        "width": 192,
+        "hash": "7647c2a1e5"
+      }
+    ]
+  },
+  "sbrokk-confused.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "2f9fb9a6a45c",
+    "variants": [
+      {
+        "path": "sbrokk-confused-320.webp",
+        "width": 320,
+        "hash": "d5fa7cc77a"
+      },
+      {
+        "path": "sbrokk-confused-640.webp",
+        "width": 640,
+        "hash": "361d37be3e"
+      },
+      {
+        "path": "sbrokk-confused-720.webp",
+        "width": 720,
+        "hash": "85846e99a6"
+      }
+    ]
+  },
+  "sbrokk-embarrassed.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "28e069654832",
+    "variants": [
+      {
+        "path": "sbrokk-embarrassed-320.webp",
+        "width": 320,
+        "hash": "f08dfd23fe"
+      },
+      {
+        "path": "sbrokk-embarrassed-640.webp",
+        "width": 640,
+        "hash": "98291bfa64"
+      },
+      {
+        "path": "sbrokk-embarrassed-720.webp",
+        "width": 720,
+        "hash": "cc6ae2c939"
+      }
+    ]
+  },
+  "sbrokk-furious.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "8171f718cf3e",
+    "variants": [
+      {
+        "path": "sbrokk-furious-320.webp",
+        "width": 320,
+        "hash": "e224ec63d3"
+      },
+      {
+        "path": "sbrokk-furious-640.webp",
+        "width": 640,
+        "hash": "011f6cd793"
+      },
+      {
+        "path": "sbrokk-furious-720.webp",
+        "width": 720,
+        "hash": "a9e4d10e0a"
+      }
+    ]
+  },
+  "sbrokk-happy.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "a929a41576b5",
+    "variants": [
+      {
+        "path": "sbrokk-happy-320.webp",
+        "width": 320,
+        "hash": "df01b05a93"
+      },
+      {
+        "path": "sbrokk-happy-640.webp",
+        "width": 640,
+        "hash": "c5a71bfe64"
+      },
+      {
+        "path": "sbrokk-happy-720.webp",
+        "width": 720,
+        "hash": "b92123dd72"
+      }
+    ]
+  },
+  "sbrokk-icon.png": {
+    "width": 1024,
+    "height": 1024,
+    "source_hash": "4594ffa40333",
+    "variants": [
+      {
+        "path": "sbrokk-icon-320.webp",
+        "width": 320,
+        "hash": "cd668d2911"
+      },
+      {
+        "path": "sbrokk-icon-640.webp",
+        "width": 640,
+        "hash": "45a82bbf23"
+      },
+      {
+        "path": "sbrokk-icon-1024.webp",
+        "width": 1024,
+        "hash": "039e2daf44"
+      }
+    ]
+  },
+  "sbrokk-level-1.png": {
+    "width": 800,
+    "height": 1388,
+    "source_hash": "923dad9b9465",
+    "variants": [
+      {
+        "path": "sbrokk-level-1-320.webp",
+        "width": 320,
+        "hash": "8fe3fb0b49"
+      },
+      {
+        "path": "sbrokk-level-1-640.webp",
+        "width": 640,
+        "hash": "cfe483a197"
+      },
+      {
+        "path": "sbrokk-level-1-800.webp",
+        "width": 800,
+        "hash": "48822f8632"
+      }
+    ]
+  },
+  "sbrokk-level-31.png": {
+    "width": 800,
+    "height": 1388,
+    "source_hash": "fd31290559a8",
+    "variants": [
+      {
+        "path": "sbrokk-level-31-320.webp",
+        "width": 320,
+        "hash": "28413f6260"
+      },
+      {
+        "path": "sbrokk-level-31-640.webp",
+        "width": 640,
+        "hash": "a3f43bcfab"
+      },
+      {
+        "path": "sbrokk-level-31-800.webp",
+        "width": 800,
+        "hash": "35e48cd3bd"
+      }
+    ]
+  },
+  "sbrokk-suspicious.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "e381a9cacd9f",
+    "variants": [
+      {
+        "path": "sbrokk-suspicious-320.webp",
+        "width": 320,
+        "hash": "922ac5b48e"
+      },
+      {
+        "path": "sbrokk-suspicious-640.webp",
+        "width": 640,
+        "hash": "8f1300eabb"
+      },
+      {
+        "path": "sbrokk-suspicious-720.webp",
+        "width": 720,
+        "hash": "83ed48b5d1"
+      }
+    ]
+  },
+  "sbrokk-triumphant.png": {
+    "width": 720,
+    "height": 720,
+    "source_hash": "aa3e1ec72368",
+    "variants": [
+      {
+        "path": "sbrokk-triumphant-320.webp",
+        "width": 320,
+        "hash": "0361d05249"
+      },
+      {
+        "path": "sbrokk-triumphant-640.webp",
+        "width": 640,
+        "hash": "39abf1535f"
+      },
+      {
+        "path": "sbrokk-triumphant-720.webp",
+        "width": 720,
+        "hash": "5901b94585"
+      }
+    ]
+  },
+  "town-bakery.png": {
+    "width": 600,
+    "height": 672,
+    "source_hash": "2ccc14cba838",
+    "variants": [
+      {
+        "path": "town-bakery-320.webp",
+        "width": 320,
+        "hash": "39c9c88561"
+      },
+      {
+        "path": "town-bakery-600.webp",
+        "width": 600,
+        "hash": "00ae735dbb"
+      }
+    ]
+  },
+  "town-bench.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "a7151f513293",
+    "variants": [
+      {
+        "path": "town-bench-264.webp",
+        "width": 264,
+        "hash": "5b1f980158"
+      }
+    ]
+  },
+  "town-buildings-palettes.png": {
+    "width": 1500,
+    "height": 2050,
+    "source_hash": "6136f12534d8",
+    "variants": [
+      {
+        "path": "town-buildings-palettes-320.webp",
+        "width": 320,
+        "hash": "d86e6c5f05"
+      },
+      {
+        "path": "town-buildings-palettes-640.webp",
+        "width": 640,
+        "hash": "2eed7aa529"
+      },
+      {
+        "path": "town-buildings-palettes-1280.webp",
+        "width": 1280,
+        "hash": "6cf538fdf6"
+      },
+      {
+        "path": "town-buildings-palettes-1500.webp",
+        "width": 1500,
+        "hash": "401c7acf24"
+      }
+    ]
+  },
+  "town-bush.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "75ba8038472e",
+    "variants": [
+      {
+        "path": "town-bush-264.webp",
+        "width": 264,
+        "hash": "2efb5ae134"
+      }
+    ]
+  },
+  "town-chick-0.png": {
+    "width": 208,
+    "height": 268,
+    "source_hash": "d7754dcefa0b",
+    "variants": [
+      {
+        "path": "town-chick-0-208.webp",
+        "width": 208,
+        "hash": "57d7f3c73d"
+      }
+    ]
+  },
+  "town-cottage.png": {
+    "width": 568,
+    "height": 636,
+    "source_hash": "05a201aa35da",
+    "variants": [
+      {
+        "path": "town-cottage-320.webp",
+        "width": 320,
+        "hash": "13a7674115"
+      },
+      {
+        "path": "town-cottage-568.webp",
+        "width": 568,
+        "hash": "0d314a872c"
+      }
+    ]
+  },
+  "town-expansion.png": {
+    "width": 640,
+    "height": 616,
+    "source_hash": "6d109680abf5",
+    "variants": [
+      {
+        "path": "town-expansion-320.webp",
+        "width": 320,
+        "hash": "ec67ec8a48"
+      },
+      {
+        "path": "town-expansion-640.webp",
+        "width": 640,
+        "hash": "17b2823856"
+      }
+    ]
+  },
+  "town-florist.png": {
+    "width": 600,
+    "height": 672,
+    "source_hash": "c0c56983cb91",
+    "variants": [
+      {
+        "path": "town-florist-320.webp",
+        "width": 320,
+        "hash": "a385ac3162"
+      },
+      {
+        "path": "town-florist-600.webp",
+        "width": 600,
+        "hash": "15d864ca5d"
+      }
+    ]
+  },
+  "town-flowers.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "b6eb8138b49a",
+    "variants": [
+      {
+        "path": "town-flowers-264.webp",
+        "width": 264,
+        "hash": "b94facc28c"
+      }
+    ]
+  },
+  "town-icon.png": {
+    "width": 192,
+    "height": 192,
+    "source_hash": "fe20bbb4690f",
+    "variants": [
+      {
+        "path": "town-icon-192.webp",
+        "width": 192,
+        "hash": "2c3c5ba341"
+      }
+    ]
+  },
+  "town-lantern.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "606a46fe3e32",
+    "variants": [
+      {
+        "path": "town-lantern-264.webp",
+        "width": 264,
+        "hash": "eaab5d9e57"
+      }
+    ]
+  },
+  "town-picnic.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "937436954f55",
+    "variants": [
+      {
+        "path": "town-picnic-264.webp",
+        "width": 264,
+        "hash": "5131f920ab"
+      }
+    ]
+  },
+  "town-pond.png": {
+    "width": 264,
+    "height": 280,
+    "source_hash": "5683e289dd8d",
+    "variants": [
+      {
+        "path": "town-pond-264.webp",
+        "width": 264,
+        "hash": "a26c469c92"
+      }
+    ]
+  },
+  "town-rabbit-0.png": {
+    "width": 208,
+    "height": 268,
+    "source_hash": "9dc13f7a2aa0",
+    "variants": [
+      {
+        "path": "town-rabbit-0-208.webp",
+        "width": 208,
+        "hash": "c1fa182f78"
+      }
+    ]
+  },
+  "town-teaHouse.png": {
+    "width": 600,
+    "height": 672,
+    "source_hash": "2da50ca35352",
+    "variants": [
+      {
+        "path": "town-teaHouse-320.webp",
+        "width": 320,
+        "hash": "cd81943f82"
+      },
+      {
+        "path": "town-teaHouse-600.webp",
+        "width": 600,
+        "hash": "b59883b8d3"
+      }
+    ]
+  },
+  "town-tree-mint.png": {
+    "width": 356,
+    "height": 448,
+    "source_hash": "3f7463efcad1",
+    "variants": [
+      {
+        "path": "town-tree-mint-320.webp",
+        "width": 320,
+        "hash": "c6e68f2309"
+      },
+      {
+        "path": "town-tree-mint-356.webp",
+        "width": 356,
+        "hash": "41adba221b"
+      }
+    ]
+  },
+  "town-tree.png": {
+    "width": 356,
+    "height": 448,
+    "source_hash": "b19e2fd407a2",
+    "variants": [
+      {
+        "path": "town-tree-320.webp",
+        "width": 320,
+        "hash": "b18e02baf9"
+      },
+      {
+        "path": "town-tree-356.webp",
+        "width": 356,
+        "hash": "764a27d4c4"
+      }
+    ]
+  },
+  "town-workshop.png": {
+    "width": 600,
+    "height": 672,
+    "source_hash": "4e897f44c3c5",
+    "variants": [
+      {
+        "path": "town-workshop-320.webp",
+        "width": 320,
+        "hash": "bbe4460522"
+      },
+      {
+        "path": "town-workshop-600.webp",
+        "width": 600,
+        "hash": "a4c89d4831"
+      }
+    ]
+  }
+}

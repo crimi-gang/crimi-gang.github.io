@@ -24,7 +24,7 @@ Il sito è statico, in italiano e responsive. Non richiede un servizio backend, 
 
 ## Modificare e verificare
 
-Le pagine HTML sono generate da `build.py`, che contiene testi e componenti comuni. `styles.css` definisce l'aspetto e `site.js` gestisce menu mobile, copia dell'email e gallerie con dialog accessibile. Non modificare soltanto gli HTML se vuoi conservare le modifiche alla prossima generazione.
+Le pagine HTML sono generate da `build.py`, che contiene testi e componenti comuni. `styles-source.css` definisce l'aspetto; il builder genera `styles.css` compresso e `site.js` gestisce menu mobile, copia dell'email e gallerie con dialog accessibile. Non modificare soltanto gli HTML se vuoi conservare le modifiche alla prossima generazione.
 
 L'informativa del gioco ha una sorgente dedicata in `privacy-tiny-cozy-town.md`, aggiornata dal documento `docs/PRIVACY_POLICY.it.md` del progetto Tiny Cozy Town. Il builder la converte in HTML, con indice e ancore. Dopo una modifica ai trattamenti, aggiornare la sorgente e rigenerare le pagine. Il footer di tutte le pagine rimanda alla privacy del sito; Contatti e la pagina del gioco rimandano anche alla privacy specifica dell'app. Queste informazioni non costituiscono un'informativa per l'app distinta Crimi Love.
 
@@ -42,6 +42,14 @@ Apri http://127.0.0.1:8765/. Non aprire direttamente gli HTML con `file://`.
 
 La galleria supporta tastiera, Escape e ritorno del focus al pulsante di apertura. Il menu espone lo stato di apertura e supporta Escape. Le animazioni rispettano la preferenza per il movimento ridotto. Navigazione e immagini delle pagine restano disponibili senza JavaScript; l'ingrandimento e la copia richiedono JavaScript.
 
+## Immagini e prestazioni
+
+Le immagini pubblicate usano WebP con `srcset` e `sizes`: il browser sceglie la risoluzione adatta al riquadro e alla densità dello schermo. Gli originali PNG restano conservati. Le gallerie aprono la variante più grande; le immagini fuori dalla prima schermata si caricano in modo differito. Ogni immagine dichiara larghezza e altezza e CSS/JavaScript hanno un URL legato al contenuto per aggiornare correttamente le cache.
+
+`image-manifest.json` collega ogni PNG alle sue varianti. Dopo aver aggiunto o aggiornato immagini, eseguire `python3 build.py`, `python3 optimize_images.py` e di nuovo `python3 build.py`. La conversione richiede `cwebp` da libwebp; per ricostruire il sito con le varianti già presenti basta Python. Se un PNG cambia senza rigenerare le varianti, il builder usa il nuovo originale anziché mostrare una versione precedente.
+
+La revisione del 21 ottobre 2026 riduce il peso delle 30 immagini attive da 3.526 MB di PNG a 0.655 MB di WebP alla risoluzione massima (circa 81% in meno). Il risparmio effettivo di una visita varia in base a schermo, immagini raggiunte e cache. Il CSS generato passa da circa 39.8 KB a 26.0 KB. Non vengono caricati framework, tracker o font remoti. La navigazione rimane disponibile anche senza JavaScript.
+
 ## Pubblicazione
 
 Repository ufficiale: `crimi-gang/crimi-gang.github.io`. In GitHub, **Settings → Pages → Deploy from a branch → main → /(root)**. Tutti i file del sito sono nella radice del repository. I file statici generati sono inclusi nel repository e `.nojekyll` disattiva l'elaborazione Jekyll. Ogni aggiornamento pubblicato su `main` aggiorna il sito tramite GitHub Pages. Non è necessario configurare Actions personalizzate.
@@ -51,7 +59,7 @@ Per aggiornare i contenuti: modifica i sorgenti, rigenera le pagine, verifica e 
 ## Risorse visive
 
 - **Crimi Love:** icona e anteprime dimostrative chiara/scura dal progetto originale; i dati delle schermate sono inventati. Palette `#C7517A`, `#593052`, `#FFDBCC`, `#F4B6C9` da `LoveTheme.swift`.
-- **Tiny Cozy Town:** risorse aggiornate il 20 ottobre 2026, esportate dal `TextureFactory.swift` attuale con `scripts/preview-artwork.sh`: cinque edifici, Mochi e Pip, sei decorazioni, due alberi e 25 combinazioni di colore. Le copertine usano la casetta originale; le panoramiche che mostravano il cartello pubblicitario sono state rimosse dalla presentazione. `town-expansion.png` proviene dall’anteprima SwiftUI della scheda di espansione. La presentazione include quattro attività fino al livello 30 e sei espansioni fino a 19 × 19. Palette `#AC98CE`, `#EFB5C7`, `#FFFBF3`, `#DFECDA` da `CozyTheme.swift`. Il builder aggiunge alle immagini Tiny Cozy Town una versione basata sul contenuto, per mostrare subito le nuove risorse anche nei browser che avevano memorizzato le precedenti.
+- **Tiny Cozy Town:** risorse aggiornate il 20 ottobre 2026, esportate dal `TextureFactory.swift` attuale con `scripts/preview-artwork.sh`: cinque edifici, Mochi e Pip, sei decorazioni, due alberi e 25 combinazioni di colore. Le copertine usano la casetta originale; le panoramiche che mostravano il cartello pubblicitario sono state rimosse dalla presentazione. `town-expansion.png` proviene dall’anteprima SwiftUI della scheda di espansione. La presentazione include quattro attività fino al livello 30 e sei espansioni fino a 19 × 19. Palette `#AC98CE`, `#EFB5C7`, `#FFFBF3`, `#DFECDA` da `CozyTheme.swift`. Le immagini ottimizzate hanno un URL basato sul contenuto, per aggiornare le risorse anche nei browser che avevano memorizzato le precedenti.
 - **Sbrokk!:** icona dal progetto Sbrokko-Game. Sei espressioni esportate senza animazioni da `SbrokkoView.swift`; due tavole illustrative dei livelli 001 e 031 composte con `NodeView`, `BoardScenery` e il catalogo originale. Non sono screenshot di una release pubblicata. Nel sito si usa il nome Sbrokk! indicato dal titolare; il progetto sorgente usa ancora Sbrokko. Palette `#F7E8CC`, `#E96A42`, `#F8B843`, `#302934` da `DesignSystem.swift`. Il gioco contiene 100 livelli, 10 capitoli, 12 espressioni, tre indizi gratuiti per livello e un Ufficio Reclami bonus. Target iOS/iPadOS 17+, italiano e inglese.
 - **Font:** Nunito variable, ospitato in `fonts-nunito-latin.woff2`; licenza SIL Open Font License inclusa in `fonts-OFL.txt`. La scelta arrotondata riprende i font di sistema delle app.
 - Icone e favicon: SVG presenti nei sorgenti del sito.

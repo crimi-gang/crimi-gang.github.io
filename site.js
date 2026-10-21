@@ -20,6 +20,9 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".site-header")) closeMenu();
 });
+navigation?.addEventListener("click", (event) => {
+  if (event.target.closest("a")) closeMenu();
+});
 window.matchMedia("(min-width: 761px)").addEventListener("change", closeMenu);
 
 document
@@ -44,7 +47,7 @@ if (dialog && typeof dialog.showModal === "function") {
       trigger = button;
       const source = button.closest("figure").querySelector("img");
       const image = dialog.querySelector("img");
-      image.src = source.src;
+      image.src = source.dataset.fullSrc || source.currentSrc || source.src;
       image.alt = source.alt;
       dialog.querySelector("p").textContent = button
         .closest("figure")
@@ -69,6 +72,7 @@ if (dialog && typeof dialog.showModal === "function") {
   });
   dialog.addEventListener("close", () => {
     document.body.classList.remove("modal-open");
+    dialog.querySelector("img").removeAttribute("src");
     trigger?.focus();
   });
 }

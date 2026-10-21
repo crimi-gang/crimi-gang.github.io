@@ -31,6 +31,12 @@ class Page(HTMLParser):
             self.description = bool(a.get('content'))
         if tag == 'img' and 'alt' not in a:
             self.errors.append('image without alt attribute')
+        if tag == 'img' and a.get('src') and not (a.get('width') and a.get('height')):
+            self.errors.append('image without intrinsic dimensions')
+        if tag == 'img' and a.get('srcset'):
+            self.references.extend(part.strip().split()[0] for part in a['srcset'].split(','))
+        if a.get('data-full-src'):
+            self.references.append(a['data-full-src'])
         for attr in ('href', 'src'):
             if a.get(attr):
                 self.references.append(a[attr])
